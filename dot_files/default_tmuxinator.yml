@@ -1,0 +1,16 @@
+project_name: name
+project_root: ~/dev/name
+pre_tab: rvm use 2.0.0@name --create
+windows:
+  - editor: vim Gemfile
+  - shell: 
+      layout: main-vertical
+      panes:
+        - rails s
+        - git pull origin master && rspec
+  - console: rails c
+  - logs: 
+      layout: even-horizontal
+      panes:
+        - tail -f log/development.log
+        - tail -f log/test.log
