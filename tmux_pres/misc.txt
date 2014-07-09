@@ -1,0 +1,17 @@
+detach session
+  ctrl+prefix d
+scrolling
+  ctrl+prefix [
+searching
+  /
+zoom pane !!!! 
+  ctrl+prefix z
+list tmuxinator projects
+  tmuxinator ls
+
+list running tmux sessions
+  tmux ls
+
+kill session
+  ttk session_name
+  tmux kill-session -t session_name
