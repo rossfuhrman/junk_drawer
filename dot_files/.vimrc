@@ -1,11 +1,13 @@
-"set runtimepath+=$HOME/.vim/bundle/vim-rails
-"set runtimepath+=$HOME/.vim/bundle/command-t
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 filetype plugin indent on
 
 syntax on
 
 imap hh <esc>
+
+map <Space> 20j
+map <S-Space> 20k
 
 
 set softtabstop=2 		" soft tab width
@@ -23,11 +25,18 @@ let mapleader=","
 
 nnoremap <leader>w :w<cr>
 
-"added so that gx command will open a url in terminal vim on osx
-let g:netrw_browsex_viewer = 'open'
+"shortcuts to common text files
+nnoremap <leader>S :e ~/Desktop/scratchpad.txt<cr>
+nnoremap <leader>N :e ~/Desktop/notes.txt<cr>
+nnoremap <leader>V :e ~/.vimrc<cr>
+nnoremap <leader>B :e ~/.bashrc<cr>
+"A = Activities - old name
+nnoremap <leader>A :e ~/Documents/today_notes.txt<cr>
+"H = Habitabs"
+nnoremap <leader>H :e ~/Documents/today_notes.txt<cr>
+"T = Today - really old name
+nnoremap <leader>T :e ~/Documents/today_notes.txt<cr>
 
-"below this line was taken from Gary Bernhardt's .vimrc 
-"https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -99,9 +108,9 @@ endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>9 :call RunTestFile()<cr>
-map <leader>8 :call RunNearestTest()<cr>
-map <leader>7 :call RunTests('')<cr>
+map <leader>9 :w\|:call RunTestFile()<cr>
+map <leader>8 :w\|:call RunNearestTest()<cr>
+map <leader>7 :w\|:call RunTests('')<cr>
 map <leader>6 :w\|:!script/features<cr>
 map <leader>5 :w\|:!script/features --profile wip<cr>
 
@@ -154,4 +163,19 @@ function! RunTests(filename)
     end
 endfunction
 
+function! MixTest()
+  exec ":!mix test"
+endfunction
+
+""""
+"more stuff???
+"""
+
+"added so that gx command will open a url in terminal vim on osx
+let g:netrw_browsex_viewer = 'open'
+
+"Use ctrl-p plugin for fuzzy finder
+nnoremap <leader>t :CtrlP<CR>
+
+nnoremap <leader>mt :w\|:call MixTest()<CR>
 
