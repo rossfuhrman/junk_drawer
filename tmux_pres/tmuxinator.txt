@@ -1,0 +1,14 @@
+gem install tmuxinator
+https://github.com/tmuxinator/tmuxinator
+
+Switching projects quickly
+Convention for project window arrangement
+
+Launch tmuxinator project
+  tmuxinator project-name
+  mux project_name
+  tt project_name
+
+*deprecations from book
+rvm: 2.0.0@project_name #The rvm command is deprecated. Rvm setup needs to take place on the pre_tab: line.
+tabs: #The tabs line needs to be changed to windows:

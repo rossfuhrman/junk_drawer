@@ -1,0 +1,32 @@
+prioritized list of stuff to know
+
+tmuxinator project_name
+switch windows
+switch panes
+scrolling pane
+searching pane
+kill session
+tmuxinator ls
+
+zoom pane
+create split 
+close split
+create window
+close window
+tmux ls
+
+Sam Livingston-Gray Tmux video ~9 min
+http://youtu.be/wKEGA8oEWXw
+
+http://flaviusim.com/blog/pair-programming-with-tmux-screencast/
+
+tmux Cheat Sheet => https://gist.github.com//henrik/1967800
+
+-link to Prag Prog code
+-link to my tmux.conf file
+-link to my default.yml file
+-link to my aliases
+-mux as alias for tmuxinator
+
+IRC #kcruby on freenode
+twitter.com/rossfuhrman

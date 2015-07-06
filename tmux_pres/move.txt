@@ -1,0 +1,15 @@
+What is the prefix?
+
+move to window
+  ctrl+prefix, ctrl+h
+  ctrl+prefix, ctrl+l
+move to pane
+  ctrl+prefix, h
+  ctrl+prefix, j
+  ctrl+prefix, k
+  ctrl+prefix, l
+resize pane
+  ctrl+prefix, H
+  ctrl+prefix, J
+  ctrl+prefix, K
+  ctrl+prefix, L

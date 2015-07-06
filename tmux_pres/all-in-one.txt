@@ -1,0 +1,101 @@
+INTRO
+What is tmux?
+brew install tmux -v 1.8
+Why is it awesome?
+        TLDL;
+It allows me to quickly switch between projects, ensuring that all my windows are always in the same place.
+
+
+MOVE
+What is the prefix?
+
+move to window
+  ctrl+prefix, ctrl+h
+  ctrl+prefix, ctrl+l
+move to pane
+  ctrl+prefix, h
+  ctrl+prefix, j
+  ctrl+prefix, k
+  ctrl+prefix, l
+resize pane
+  ctrl+prefix, H
+  ctrl+prefix, J
+  ctrl+prefix, K
+  ctrl+prefix, L
+
+CREATE
+create pane
+  vertical
+    ctrl+prefix, |
+  horizontal
+    ctrl+prefix, -
+
+close pane
+  ctrl+prefix, x
+
+create window
+  ctrl+prefix, c
+
+close window
+  ctrl+prefix, &
+
+
+
+TMUXINATOR
+gem install tmuxinator
+https://github.com/tmuxinator/tmuxinator
+
+Switching projects quickly
+Convention for project window arrangement
+
+Launch tmuxinator project
+  tmuxinator project-name
+  mux project_name
+  tt project_name
+
+*deprecations from book
+rvm: 2.0.0@project_name #The rvm command is deprecated. Rvm setup needs to take place on the pre_tab: line.
+tabs: #The tabs line needs to be changed to windows:
+
+
+PAIRING
+Links to various ways to set up remote pairing in tmux:
+
+http://pivotallabs.com/how-we-use-tmux-for-remote-pair-programming/
+http://tmate.io/
+http://blog.quarternotecoda.com/blog/2013/06/06/quick-script-for-tmux-pair-sessions/
+http://7enn.com/2011/07/10/remote-pair-programming-with-vim-ssh-tmux-and-skype/
+http://thechangelog.com/vimux-simple-extensible-vim-integration-with-tmux/
+https://github.com/zolrath/wemux
+https://github.com/benmills/vimux
+
+
+RESOURCES
+
+prioritized list of stuff to know
+
+tmuxinator project_name
+switch windows
+switch panes
+scrolling pane
+searching pane
+kill session
+tmuxinator ls
+
+zoom pane
+create split 
+close split
+create window
+close window
+tmux ls
+
+Sam Livingston-Gray Tmux video ~9 min
+http://youtu.be/wKEGA8oEWXw
+
+-link to Prag Prog code => http://pragprog.com/titles/bhtmux/source_code
+-link to my tmux.conf file => https://github.com/rossfuhrman/junk_drawer/blob/master/dot_files/.tmux.conf
+-link to my default.yml file => https://github.com/rossfuhrman/junk_drawer/blob/master/dot_files/default_tmuxinator.yml
+-link to my aliases => https://github.com/rossfuhrman/junk_drawer/blob/master/dot_files/.bashrc#L44
+
+IRC #kcruby on freenode
+twitter.com/rossfuhrman

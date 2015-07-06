@@ -1,0 +1,14 @@
+create pane
+  vertical
+    ctrl+prefix, |
+  horizontal
+    ctrl+prefix, -
+
+close pane
+  ctrl+prefix, x
+
+create window
+  ctrl+prefix, c
+
+close window
+  ctrl+prefix, &

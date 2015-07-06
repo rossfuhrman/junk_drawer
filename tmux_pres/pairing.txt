@@ -1,0 +1,9 @@
+Links to various ways to set up remote pairing in tmux:
+
+http://pivotallabs.com/how-we-use-tmux-for-remote-pair-programming/
+http://tmate.io/
+http://blog.quarternotecoda.com/blog/2013/06/06/quick-script-for-tmux-pair-sessions/
+http://7enn.com/2011/07/10/remote-pair-programming-with-vim-ssh-tmux-and-skype/
+http://thechangelog.com/vimux-simple-extensible-vim-integration-with-tmux/
+https://github.com/zolrath/wemux
+https://github.com/benmills/vimux

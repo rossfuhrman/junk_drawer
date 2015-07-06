@@ -1,0 +1,5 @@
+What is tmux?
+brew install tmux -v 1.8
+Why is it awesome?
+        TLDL;
+It allows me to quickly switch between projects, ensuring that all my windows are always in the same place.
