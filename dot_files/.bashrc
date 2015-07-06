@@ -1,9 +1,63 @@
+#function that will run the passed in command and use the OSX say command to announce the exit status of the command
+say_status_of_command() {
+  eval $1
+
+  if [ $? -eq 0 ]
+  then
+    say ""
+  else
+    say "Oops! Something went wrong"
+    say $1 #say the command that was passed in
+  fi
+}
+
+#these have to be functions because you cannot pass parameters to an alias
+git_branch() {
+  say_status_of_command "git branch"
+}
+git_branch_clear() {
+  say_status_of_command "clear; git branch"
+}
+git_status() {
+  say_status_of_command "git status"
+}
+git_status_clear() {
+  say_status_of_command "clear; git status"
+}
+git_push_origin_master() {
+  say_status_of_command "git push origin master"
+}
+git_push_heroku_master() {
+  say_status_of_command "git push heroku master"
+}
+
+heroku_open() {
+  say_status_of_command "heroku open"
+}
+heroku_ps() {
+  say_status_of_command "heroku ps"
+}
+heroku_restart() {
+  say_status_of_command "heroku restart"
+}
+heroku_config() {
+  say_status_of_command "heroku config"
+}
+heroku_logs() {
+  say_status_of_command "heroku logs -n 1500"
+}
+heroku_pgbackups() {
+  say_status_of_command "heroku pg:backups"
+}
+
+
 #http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 export HISTSIZE=100000                   # big big history
 export HISTFILESIZE=100000               # big big history
 shopt -s histappend                      # append to history, don't overwrite it
 
 
+export PS1="\w$ "
 export EDITOR=vim
 export PGHOST=/tmp
 export PATH=/usr/local/bin:$PATH
@@ -13,33 +67,35 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 #git aliases
-alias ggd='git diff'
-alias ggb='git branch'
-alias ggbc='clear; git branch'
+alias ggb=git_branch
+alias ggbc=git_branch_clear
 
-alias ggs='git status'
-alias ggsc='clear; git status'
-
-alias ggpom='git push origin master'
-
-alias ggphm='git push heroku master'
+alias ggphm=git_push_heroku_master
 
 alias ggd='git diff '
+
+alias ggs=git_status
+alias ggsc=git_status_clear
 
 alias ggc='git checkout '
 alias ggcb='git checkout -b '
 
-#open git remote url in browser
+alias ggpom='git_push_origin_master'
+
+#this command came from https://gist.github.com/Bantik/6004772
+#alias ggo='git config --get remote.origin.url | ruby -ne '\''puts %{https://github.com/#{$_.split(/.com[\:\/]/)[-1].gsub(".git","")}}'\'' | xargs open'
+#No need for the ruby regex though
 alias ggo="git config --get remote.origin.url | sed 's/\.git//' | xargs open"
 
 #heroku aliases
-alias hho='heroku open'
-alias hhp='heroku ps'
-alias hhr='heroku restart'
-alias hhc='heroku config'
-alias hhl='heroku logs -n 1500'
-alias hhb='heroku pgbackups'
-alias hhdb='curl -o current.backup `heroku pgbackups:url`'
+alias hho=heroku_open
+alias hhp=heroku_ps
+alias hhr=heroku_restart
+alias hhc=heroku_config
+alias hhl=heroku_logs
+alias hhb=heroku_pgbackups
+#alias hhdb='curl -o current.backup `heroku pgbackups:url`' #old command
+alias hhdb='curl -o current.backup `heroku pg:backups public-url`'
 
 #tmux aliases
 alias tt='tmuxinator'
@@ -47,12 +103,16 @@ alias ttl='tmuxinator ls'
 alias ttk='tmux kill-session -t '
 
 
-
 #other aliases
+
 alias dif='diff'
 alias cls='clear'
 
 alias flush='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+
+#for those old projects that require version 1.0.20 of bundler
+alias bb20='bundle _1.0.20_ exec '
+
 
 #find processes preventing machine from sleeping.  Look for the prevent sleep entries
 alias nosleep='pmset -g assertions'
@@ -83,4 +143,10 @@ PS1="[\w]$ "
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# https://github.com/kien/ctrlp.vim/issues/359
+stty -ixon -ixoff
+
+#make the terminal behave vim-like bindings
+set -o vi
 
